@@ -1,3 +1,5 @@
+import {externals as questionController} from '../controllers/question-controller.js';
+
 export const externals = {};
 const internals = {};
 
@@ -5,8 +7,22 @@ externals.start = function() {
     console.log("[QUESTION VIEW HERE]")
 }
 
-externals.renderQuestion = function(question, correctAnswer, options) {
+externals.render = function(question, correctAnswer, options) {
+    internals.renderQuestion(question, correctAnswer, options);
+    internals.setButtonActions();
+}
 
+externals.renderLives = function() {
+
+}
+
+externals.renderLevel = function() {
+
+
+    $('#level').text('Level: 1')
+}
+
+internals.renderQuestion = function(question, correctAnswer, options) {
     $("#question").empty();
 
     console.log('[Question]', question);
@@ -34,4 +50,16 @@ externals.renderQuestion = function(question, correctAnswer, options) {
 
     
     $(element).appendTo('#question');
+}
+
+internals.setButtonActions = function() {
+    $('.correctBtn').click(function() {
+        console.log('Correct');
+        questionController.nextLevel();
+
+    });
+    $('.incorrectBtn').click(function() {
+        console.log('Incorrect');
+        questionController.previousLevel();
+    })
 }
