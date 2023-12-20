@@ -4,45 +4,88 @@ import {externals as questionService} from '../services/question-service.js';
 export const externals = {};
 const internals = {};
 
+let questionsForNextLevel = 2;
+let lives = 3;
+
 externals.start = function() {
     console.log("[QUESTION CONTROLLER HERE]");
-    questionView.renderLives();
-    questionView.renderLevel();
+    questionView.renderLives(); ///
+    questionView.renderQuestionsToAnswer(); ///
+    questionView.renderLevel(1);
     internals.createQuestion();
 }
 
-externals.nextLevel = function() {
-    const currLevel = parseInt($('#level').text().split('Level: ')[1]);
 
-    const newLevel = (currLevel === 12) ? 12 : currLevel + 1;
+externals.correctAnswer = function() {
+    questionsForNextLevel--;
 
-    $('#level').text('Level: ' + newLevel);
+    if (questionsForNextLevel === 0) {
+
+        internals.nextLevel();
+    }
 
     internals.createQuestion();
-
-    console.log(currLevel);
+    
 }
 
-externals.previousLevel = function() {
-    const currLevel = parseInt($('#level').text().split('Level: ')[1]);
+externals.incorrectAnswer = function() {
+    lives--;
 
-    const newLevel = (currLevel === 1) ? 1 : currLevel - 1;
-
-    $('#level').text('Level: ' + newLevel);
+    if (lives === 0) {
+        internals.previousLevel();
+    }
 
     internals.createQuestion();
+}
+
+internals.nextLevel = function() {
+
+    questionsForNextLevel = 2;
+    lives = 3;
+
+    const newLevel = (internals.currLevel() === 12) ? 12 : internals.currLevel() + 1;
+
+    questionView.renderLevel(newLevel);
 
 }
 
-externals.newQuestion = function() {
+internals.previousLevel = function() {
 
-    internals.createQuestion();
+    questionsForNextLevel = 2;
+    lives = 3;
+
+    const newLevel = (internals.currLevel() === 1) ? 1 : internals.currLevel() - 1;
+
+    questionView.renderLevel(newLevel);
+
 }
 
 internals.createQuestion = async function() {
 
-    const question = await questionService.createQuestion();
+    console.log("Lives: " + lives);
+
+    let difficulty;
+
+    if (internals.currLevel() >= 9) {
+        difficulty = 'hard';
+    } else if (internals.currLevel() >= 5) {
+        difficulty = 'medium'
+    } else {
+        difficulty = 'easy'
+    }
+
+    console.log('[DIFFICULTY]', difficulty);
+
+    const question = await questionService.createQuestion(difficulty);
 
     questionView.render(...question);
 
+}
+
+internals.setQuestionsAndLives = function() {
+
+}
+
+internals.currLevel = function() {
+    return parseInt($('#level').text().split('Level: ')[1]);
 }

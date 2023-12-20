@@ -16,10 +16,13 @@ externals.renderLives = function() {
 
 }
 
-externals.renderLevel = function() {
+externals.renderQuestionsToAnswer = function() {
 
+}
 
-    $('#level').text('Level: 1')
+externals.renderLevel = function(level = 1) {
+
+    $('#level').text('Level: ' + level)
 }
 
 internals.renderQuestion = function(question, correctAnswer, options) {
@@ -46,8 +49,6 @@ internals.renderQuestion = function(question, correctAnswer, options) {
         
         element += ` >${res}</button>`
     });
-
-
     
     $(element).appendTo('#question');
 }
@@ -55,11 +56,13 @@ internals.renderQuestion = function(question, correctAnswer, options) {
 internals.setButtonActions = function() {
     $('.correctBtn').click(function() {
         console.log('Correct');
-        questionController.nextLevel();
+        questionController.correctAnswer();
+        $('#answer-message').text('Correct')
 
     });
     $('.incorrectBtn').click(function() {
         console.log('Incorrect');
-        questionController.previousLevel();
+        questionController.incorrectAnswer();
+        $('#answer-message').text('Incorrect')
     })
 }

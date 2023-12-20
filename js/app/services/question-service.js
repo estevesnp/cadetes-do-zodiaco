@@ -1,7 +1,23 @@
+import {questions as questionsArrays} from '../questions.js';
+
 export const externals = {};
 const internals = {};
 
-externals.createQuestion = async function(difficulty = 'easy') {
+externals.createQuestion = function(difficulty = 'easy') {
+
+    const questArray = questionsArrays[difficulty];
+    const quest = questArray[Math.floor(Math.random() * questArray.length)];
+
+    console.log('[QUEST]', quest);
+
+    const options = [...quest.incorrectAnswers];
+    
+    options.splice(Math.floor(Math.random() * (options.length + 1)), 0, quest.correctAnswer);
+
+    return [quest.question, quest.correctAnswer, options]
+}
+
+externals.createQuestionFetch = async function(difficulty = 'easy') {
     const results = await fetch(`https://the-trivia-api.com/v2/questions?limit=1&difficulties=${difficulty}`);
     const data = await results.json();
 
