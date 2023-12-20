@@ -26,7 +26,8 @@ externals.renderLevel = function(level = 1) {
 }
 
 internals.renderQuestion = function(question, correctAnswer, options) {
-    $("#question").empty();
+    $("#question").empty()
+    $("#options").empty()
 
     console.log('[Question]', question);
     console.log('[Correct Answer]', correctAnswer);
@@ -38,19 +39,23 @@ internals.renderQuestion = function(question, correctAnswer, options) {
         '</strong></p>'
     );
 
+    $(element).appendTo('#question')
+
+    element = '';
+
     options.forEach(res => {
-        element += '<button class=';
+        element += '<button type="button" class="btn btn-warning ';
 
         if (res === correctAnswer) {
-            element += '"correctBtn"';
+            element += 'correctBtn"';
         } else {
-            element += '"incorrectBtn"';
+            element += 'incorrectBtn"';
         }
         
         element += ` >${res}</button>`
     });
     
-    $(element).appendTo('#question');
+    $(element).appendTo('#options');
 }
 
 internals.setButtonActions = function() {

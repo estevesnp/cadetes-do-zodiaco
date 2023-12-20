@@ -1,52 +1,66 @@
 <!DOCTYPE html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8" />
-        <title>Random NBA Player</title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Saint Seiya</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="manifest" href="site.webmanifest" />
-        <link rel="apple-touch-icon" href="icon.png" />
-        <!-- Place favicon.ico in the root directory -->
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/normalize.css" />
 
-        <link rel="stylesheet" href="css/normalize.css" />
-        <link rel="stylesheet" href="css/main.css" />
-        <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="theme-color" content="#fafafa" />
+  </head>
 
-        <meta name="theme-color" content="#fafafa" />
-    </head>
+  <body>
+    <!-- WebApp -->
 
-    <body>
-        <!-- WebApp -->
+    <div class="page">
+      <img
+        src="../AssetsMapa/saintseiyalogo.png"
+        id="logo-img"
+        alt="saint seiya logo"
+      />
+      <h1 id="level"></h1>
+      <h1 id="lives"></h1>
+      <h1 id="questions-to-answer"></h1>
+      <h5>Answer a question to advance</h5>
+      <div id="question"></div>
+      <div id="options"></div>
+      <p id="answer-message"></p>
+    </div>
 
-        <div class="container">
-            <h1 id="level"></h1>
-            <h1 id="lives"></h1>
-            <h1 id="questions-to-answer"></h1>
-            <h1>Answer a question to advance</h1>
-            <div id="question"></div>
-            <p id="answer-message"></p>
-        </div>
+    <!-- WebApp -->
+    <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.0.min.js"
+      integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="js/vendor/jquery-3.4.0.min.js"><\/script>'
+        );
+    </script>
+    <script src="js/plugins.js"></script>
 
-        <!-- WebApp -->
-        <script src="js/vendor/modernizr-3.7.1.min.js"></script>
-        <script
-            src="https://code.jquery.com/jquery-3.4.0.min.js"
-            integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-            crossorigin="anonymous"
-        ></script>
-        <script>
-            window.jQuery ||
-                document.write('<script src="js/vendor/jquery-3.4.0.min.js"><\/script>');
-        </script>
-        <script src="js/plugins.js"></script>
-
-        <script 
-            type="module"
-            src="js/app/main.js">
-        </script>
-
-
-    </body>
+    <script type="module" src="js/app/main.js"></script>
+  </body>
 </html>
