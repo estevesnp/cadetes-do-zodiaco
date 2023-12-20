@@ -5,7 +5,14 @@ export const externals = {};
 const internals = {};
 
 externals.start = function() {
-    console.log("[QUESTION CONTROLLER HERE]")
-    questionView.start();
-    questionService.start();
+    console.log("[QUESTION CONTROLLER HERE]");
+    internals.createQuestion();
+}
+
+internals.createQuestion = async function() {
+
+    const question = await questionService.createQuestion()
+
+    questionView.renderQuestion(...question);
+
 }
