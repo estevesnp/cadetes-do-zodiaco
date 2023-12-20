@@ -11,7 +11,7 @@ externals.start = function() {
     console.log("[QUESTION CONTROLLER HERE]");
     questionView.renderLives(); ///
     questionView.renderQuestionsToAnswer(); ///
-    questionView.renderLevel(1);
+    questionView.updateLevel(1);
     internals.createQuestion();
 }
 
@@ -45,7 +45,7 @@ internals.nextLevel = function() {
 
     const newLevel = (internals.currLevel() === 12) ? 12 : internals.currLevel() + 1;
 
-    questionView.renderLevel(newLevel);
+    questionView.updateLevel(newLevel);
 
 }
 
@@ -56,7 +56,7 @@ internals.previousLevel = function() {
 
     const newLevel = (internals.currLevel() === 1) ? 1 : internals.currLevel() - 1;
 
-    questionView.renderLevel(newLevel);
+    questionView.updateLevel(newLevel);
 
 }
 

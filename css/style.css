@@ -29,16 +29,21 @@ body {
 }
 
 #options {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 
-    width: 70%
-    
+  width: 70%;
 }
 button {
-    width:40%;
-    height: 40%
+  width: 40%;
+  height: 40%;
+}
+#level {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
 }
