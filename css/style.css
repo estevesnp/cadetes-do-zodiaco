@@ -1,0 +1,103 @@
+body {
+  background: url(../AssetsMapa/interdimensional-ultimatum-fanart-by-me-v0-tdtmxslnwlra1.png)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Macondo", cursive;
+  font-size: 2em;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+center {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  size: 100%;
+  width: 70%;
+}
+#intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 99%;
+}
+#end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 99%;
+}
+#start-journey {
+  margin: 3%;
+}
+#answer-message {
+  color: aquamarine;
+}
+#correct-answer {
+  color: rgb(39, 183, 39);
+}
+#incorrect-answer {
+  color: rgb(183, 39, 39);
+}
+#logo-img {
+  max-width: 30%;
+  margin-top: 10px;
+  margin: 10px;
+}
+
+#level-img{
+    margin-top: -30px;
+}
+#video {
+  width: 100%;
+}
+#map-img {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 60%;
+  gap: 10px;
+}
+#map-actual-img {
+  width: 105%;
+}
+#question {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+#options {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 90%;
+}
+button {
+  width: 400px;
+  height: 60px;
+  background-color: #dd8d00 !important;
+  border-color: #dd8d00 !important;
+  margin: 5px;
+}
+#level {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
+}
+#progress-message {
+  margin-bottom: -10px;
+  font-size: 0.7em;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}

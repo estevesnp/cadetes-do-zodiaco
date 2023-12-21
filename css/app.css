@@ -1,0 +1,16 @@
+.container {
+  margin: 20px;
+}
+
+.random-film {
+  padding: 10px;
+  border: 2px solid #4caf50;
+}
+
+.correctBtn {
+  border: solid;
+}
+
+body {
+  background-image: "../AssetsMapa/interdimensional-ultimatum-fanart-by-me-v0-tdtmxslnwlra1.png";
+}
