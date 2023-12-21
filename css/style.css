@@ -9,7 +9,6 @@ body {
   font-size: 2em;
   color: white;
   text-shadow: 2px 2px 4px #000000;
-
 }
 
 .page {
@@ -39,26 +38,26 @@ body {
   color: rgb(183, 39, 39);
 }
 #logo-img {
-  width: 45%;
+  max-width: 30%;
 }
-#video{
-    width: 100%;
+#video {
+  width: 100%;
 }
 #map-img {
   display: flex;
   align-items: center;
   flex-direction: column;
+  max-width: 60%;
 }
 #map-actual-img {
   width: 110%;
 }
 #question {
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 #options {
   display: flex;
