@@ -7,7 +7,7 @@ externals.renderIntro = function () {
   //add dynamic username?
   const introMsg = `<br><p><center>You have entered the world of Saint Seiya…<br>
     Answer the questions to clear the levels.<br>
-    It is up to you to save Athena…</center></p><iframe src="https://drive.google.com/file/d/1pYMwjZzchso9rB9W-ZjMB2xbXQWtA58v/preview" width="640" height="480" allow="autoplay"></iframe>`;
+    It is up to you to save Athena…</center></p><iframe id="video" src="https://drive.google.com/file/d/1pYMwjZzchso9rB9W-ZjMB2xbXQWtA58v/preview" width="640" height="480" allow="autoplay"></iframe>`;
 
   //changed button name
   let element =
@@ -28,7 +28,7 @@ externals.renderMap = function (level = 1) {
   $("#level").empty();
 
   let element =
-    '<br><img id="map-actual-img" src="../AssetsMapa/map' +
+    '<img id="map-actual-img" src="../AssetsMapa/map' +
     level +
     '.png">' +
     '<br><button id="start-game" type="button" class="btn btn-warning">Play</button>';

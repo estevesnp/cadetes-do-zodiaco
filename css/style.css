@@ -5,10 +5,11 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5em;
+  font-family: "Macondo", cursive;
+  font-size: 2em;
   color: white;
   text-shadow: 2px 2px 4px #000000;
+
 }
 
 .page {
@@ -23,9 +24,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 99%;
 }
 #start-journey {
-  margin: 60%;
+  margin: 3%;
 }
 #answer-message {
   color: aquamarine;
@@ -37,7 +39,10 @@ body {
   color: rgb(183, 39, 39);
 }
 #logo-img {
-  width: 20%;
+  width: 45%;
+}
+#video{
+    width: 100%;
 }
 #map-img {
   display: flex;
@@ -46,6 +51,14 @@ body {
 }
 #map-actual-img {
   width: 110%;
+}
+#question {
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
 }
 #options {
   display: flex;
