@@ -105,25 +105,10 @@ easyQuestions.push(
     "45º",
   ]),
   new Question(
-    "Jupiter is the fastest spinning planet in the solar system.",
-    "True",
-    ["False"]
-  ),
-  new Question(
-    "Jupiter has over 60 moons, more than any other planet.",
-    "True",
-    ["False"]
-  ),
-  new Question(
     "Astronomy and astrology are the same field of study.",
     "False",
     ["True"]
   ),
-  new Question("Capella is the brightest star in…", "Auriga", [
-    "Taurus",
-    "Canis Minor",
-    "Canis Major",
-  ]),
   new Question("The largest moon of Neptune is called…", "Triton", [
     "Titan",
     "Ganymede",
@@ -133,11 +118,6 @@ easyQuestions.push(
     "Who discovered the planet Uranus through his telescope?",
     "William Herschel",
     ["Urbain Le Verrier", "John Couch Adams", "Johann Galle"]
-  ),
-  new Question(
-    "There are possibly oceans of liquid diamond on Uranus and Neptune.",
-    "True",
-    ["False"]
   ),
   new Question("How many planets are in our solar system?", "8", [
     "6",
@@ -173,11 +153,6 @@ easyQuestions.push(
     "Dwarf planets",
     "Planets",
   ]),
-  new Question(
-    "Canopus is the second brightest star in the night sky.",
-    "True",
-    ["False"]
-  ),
   new Question("The brightest object in our sky is…", "The sun", [
     "The moon",
     "The planet Venus",
@@ -216,6 +191,11 @@ easyQuestions.push(
 );
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 mediumQuestions.push(
+  new Question(
+    "Jupiter is the fastest spinning planet in the solar system.",
+    "True",
+    ["False"]
+  ),
   new Question("Boötes means…", "The plowman", [
     "The crow",
     "The virgin",
@@ -288,7 +268,7 @@ mediumQuestions.push(
   new Question("What are the two ice giant planets?", "Uranus and Neptune", [
     "Pluto and Neptune",
     "Mercury and Venus",
-    "JupiterandSaturn",
+    "Jupiter and Saturn",
   ]),
   new Question(
     "A dwarf planet…",

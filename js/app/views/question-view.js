@@ -57,15 +57,22 @@ internals.renderQuestion = function (question, correctAnswer, options) {
 internals.setButtonActions = function () {
   $(".correctBtn").click(function () {
     console.log("Correct");
-    $('#answer-message').empty()
-    $("<span>Correct</span>").appendTo('#answer-message');
+    $("#answer-message").empty();
+    $('<span id="correct-answer">Correct</span>').appendTo("#answer-message");
+    setTimeout(function () {
+      $("#correct-answer").fadeOut();
+    }, 1000);
     questionController.correctAnswer();
   });
   $(".incorrectBtn").click(function () {
     console.log("Incorrect");
-    $('#answer-message').empty()
-    $("<span>Incorrect</span>").appendTo('#answer-message');
+    $("#answer-message").empty();
+    $('<span id="incorrect-answer">Incorrect</span>').appendTo(
+      "#answer-message"
+    );
+    setTimeout(function () {
+      $("#incorrect-answer").fadeOut();
+    }, 1000);
     questionController.incorrectAnswer();
   });
 };
-

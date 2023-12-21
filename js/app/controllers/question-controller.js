@@ -1,6 +1,6 @@
-import {externals as mapView} from '../views/map-view.js';
-import {externals as questionView} from '../views/question-view.js';
-import {externals as questionService} from '../services/question-service.js';
+import { externals as mapView } from "../views/map-view.js";
+import { externals as questionView } from "../views/question-view.js";
+import { externals as questionService } from "../services/question-service.js";
 
 export const externals = {};
 const internals = {};
@@ -9,111 +9,133 @@ let level = 1;
 let lives = 3;
 let questionDifficulties = [];
 
+externals.start = function () {
+  console.log("[QUESTION CONTROLLER HERE]");
 
-externals.start = function() {
-    console.log("[QUESTION CONTROLLER HERE]");
+  mapView.renderIntro();
+};
 
-    mapView.renderIntro();
+externals.beginLevel = function (level = 1) {
+  questionView.updateLevel(level);
 
-}
+  lives = 3;
 
-externals.beginLevel = function(level = 1) {
+  // change questions according to level
+  internals.createQuestionArray(level);
 
-    questionView.updateLevel(level);
+  internals.createQuestion();
+};
 
-    lives = 3;
+externals.correctAnswer = function () {
+  questionDifficulties.shift();
 
-    // change questions according to level
-    internals.createQuestionArray(level);
-
+  if (questionDifficulties.length === 0) {
+    internals.nextLevel();
+  } else {
     internals.createQuestion();
-}
+  }
+};
 
-externals.correctAnswer = function() {
+externals.incorrectAnswer = function () {
+  lives--;
 
-    questionDifficulties.shift();
+  if (lives === 0) {
+    internals.previousLevel();
+  } else {
+    internals.createQuestion();
+  }
+};
 
-    if (questionDifficulties.length === 0) {
+internals.createQuestionArray = function (level = 1) {
+  questionDifficulties = [];
 
-        internals.nextLevel();
-    } else {
-        
-        internals.createQuestion();
-    }
+  switch (level) {
+    case 1:
+      questionDifficulties.push("easy", "easy");
+      break;
+    case 2:
+      questionDifficulties.push("easy", "easy");
+      break;
+    case 3:
+      questionDifficulties.push("easy", "easy", "easy");
+      break;
+    case 4:
+      questionDifficulties.push("easy", "easy", "medium");
+      break;
+    case 5:
+      questionDifficulties.push("easy", "easy", "medium");
+      break;
+    case 6:
+      questionDifficulties.push("easy", "medium", "medium");
+      break;
+    case 7:
+      questionDifficulties.push("medium", "medium", "medium");
+      break;
+    case 8:
+      questionDifficulties.push("medium", "medium", "medium");
+      break;
+    case 9:
+      questionDifficulties.push("medium", "medium", "medium", "hard");
+      break;
+    case 10:
+      questionDifficulties.push("medium", "medium", "hard", "hard");
+      break;
+    case 11:
+      questionDifficulties.push("medium", "hard", "hard", "hard");
+      break;
+    case 12:
+      questionDifficulties.push("hard", "hard", "hard", "hard");
+      break;
+  }
+};
 
-    
-}
+internals.nextLevel = function () {
+  const newLevel =
+    internals.currLevel() === 12 ? 12 : internals.currLevel() + 1;
 
-externals.incorrectAnswer = function() {
+  level = newLevel;
 
-    lives--;
+  mapView.renderMap(newLevel);
+};
 
-    if (lives === 0) {
-        internals.previousLevel();
-    } else {
+internals.previousLevel = function () {
+  lives = 3;
 
-        internals.createQuestion();
-    }
+  const newLevel = internals.currLevel() === 1 ? 1 : internals.currLevel() - 1;
 
-}
+  level = newLevel;
 
-internals.createQuestionArray = function(level = 1) {
-    questionDifficulties = [];
-    questionDifficulties.push('easy', 'easy')
-}
+  mapView.renderMap(newLevel);
+};
 
-internals.nextLevel = function() {
+internals.createQuestion = async function () {
+  console.log("Lives: " + lives);
 
-    const newLevel = (internals.currLevel() === 12) ? 12 : internals.currLevel() + 1;
+  let difficulty;
 
-    level = newLevel;
+  if (internals.currLevel() >= 9) {
+    difficulty = "hard";
+  } else if (internals.currLevel() >= 5) {
+    difficulty = "medium";
+  } else {
+    difficulty = "easy";
+  }
 
-    mapView.renderMap(newLevel);
+  console.log("QUESTIONS REMAINING: ", questionDifficulties.length);
 
-}
+  console.log("[DIFFICULTY]", questionDifficulties[0]);
 
-internals.previousLevel = function() {
+  //const question = await questionService.createQuestion(difficulty);
 
-    lives = 3;
+  const question = await questionService.createQuestion(
+    questionDifficulties[0]
+  );
 
-    const newLevel = (internals.currLevel() === 1) ? 1 : internals.currLevel() - 1;
+  questionView.render(...question);
+};
 
-    level = newLevel;
+internals.setQuestionsAndLives = function () {};
 
-    mapView.renderMap(newLevel);
-
-}
-
-internals.createQuestion = async function() {
-
-    console.log("Lives: " + lives);
-
-    let difficulty;
-
-    if (internals.currLevel() >= 9) {
-        difficulty = 'hard';
-    } else if (internals.currLevel() >= 5) {
-        difficulty = 'medium'
-    } else {
-        difficulty = 'easy'
-    }
-
-    console.log('QUESTIONS REMAINING: ', questionDifficulties.length);
-
-    console.log('[DIFFICULTY]', questionDifficulties[0]);
-
-    //const question = await questionService.createQuestion(difficulty);
-
-    const question = await questionService.createQuestion(questionDifficulties[0]);
-
-    questionView.render(...question);
-
-}
-
-internals.setQuestionsAndLives = function() {
-
-}
-
-internals.currLevel = function() {
-    return parseInt($('#level').text().split('Level: ')[1]);
-}
+internals.currLevel = function () {
+  return parseInt($("#level").text().split("Level: ")[1]);
+};

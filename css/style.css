@@ -6,9 +6,9 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
   color: white;
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-  -webkit-text-stroke: 1px black;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .page {
@@ -19,27 +19,47 @@ body {
   size: 100%;
   width: 70%;
 }
-
+#intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#start-journey {
+  margin: 60%;
+}
 #answer-message {
   color: aquamarine;
 }
-
+#correct-answer {
+  color: rgb(39, 183, 39);
+}
+#incorrect-answer {
+  color: rgb(183, 39, 39);
+}
 #logo-img {
   width: 20%;
 }
-
+#map-img {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#map-actual-img {
+  width: 110%;
+}
 #options {
   display: flex;
   align-items: center;
   justify-content: space-around;
-
   flex-wrap: wrap;
-
-  width: 70%;
+  width: 90%;
 }
 button {
-  width: 40%;
-  height: 40%;
+  width: 250px;
+  height: 60px;
+  background-color: #dd8d00 !important;
+  border-color: #dd8d00 !important;
+  margin: 5px;
 }
 #level {
   display: flex;
