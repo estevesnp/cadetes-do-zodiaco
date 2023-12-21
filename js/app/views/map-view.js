@@ -27,8 +27,8 @@ externals.renderMap = function (level = 1, message) {
   $("#options").empty();
   $("#answer-message").empty();
   $("#level").empty();
-  $("#question").hide();
   $("#level-img").empty();
+  $("#question").hide();
 
   let element =
     '<img id="map-actual-img" src="../AssetsMapa/map' + level + '.png">';
@@ -46,6 +46,21 @@ externals.renderMap = function (level = 1, message) {
     questionController.beginLevel(level);
   });
 };
+
+externals.renderEnd = function() {
+
+    $("#question").empty();
+    $("#options").empty();
+    $("#answer-message").empty();
+    $("#level").empty();
+    $("#level-img").empty();
+    $("#question").hide();
+
+    let element = '<h1>THE END</h1>';
+
+    $(elemet).appendTo('#intro');
+
+}
 
 externals.deleteMap = function () {
   $("#map-img").empty();

@@ -9,12 +9,12 @@ externals.start = function () {
 
 externals.render = function (question, correctAnswer, options) {
   internals.renderQuestion(question, correctAnswer, options);
-  internals.setButtonActions();
+  internals.setButtonActions(question, correctAnswer, options);
 };
 
-externals.renderLives = function () {};
+externals.renderLives = function () { };
 
-externals.renderQuestionsToAnswer = function () {};
+externals.renderQuestionsToAnswer = function () { };
 
 externals.updateLevel = function (level = 1) {
   $("#level-img").empty();
@@ -55,7 +55,7 @@ internals.renderQuestion = function (question, correctAnswer, options) {
   $(element).appendTo("#options");
 };
 
-internals.setButtonActions = function () {
+internals.setButtonActions = function (question, correctAnswer, options) {
   $(".correctBtn").click(function () {
     console.log("Correct");
     $("#answer-message").empty();
@@ -65,6 +65,7 @@ internals.setButtonActions = function () {
     }, 1000);
     questionController.correctAnswer();
   });
+
   $(".incorrectBtn").click(function () {
     console.log("Incorrect");
     $("#answer-message").empty();
@@ -75,5 +76,23 @@ internals.setButtonActions = function () {
       $("#incorrect-answer").fadeOut();
     }, 1000);
     questionController.incorrectAnswer();
+  });
+
+  $(document).keydown(function (event) {
+    if (event.which === 76) {
+
+      console.log('??????????');
+
+      while (options.length > 2) {
+        const rand = Math.floor(Math.random() * options.length)
+        if (options[rand] !== correctAnswer) {
+          options.splice(rand, 1)
+        }
+      }
+
+      internals.renderQuestion(question, correctAnswer, options)
+      internals.setButtonActions(question, correctAnswer, options);
+
+    }
   });
 };
