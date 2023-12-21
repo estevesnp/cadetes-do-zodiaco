@@ -57,12 +57,15 @@ internals.renderQuestion = function (question, correctAnswer, options) {
 internals.setButtonActions = function () {
   $(".correctBtn").click(function () {
     console.log("Correct");
+    $('#answer-message').empty()
+    $("<span>Correct</span>").appendTo('#answer-message');
     questionController.correctAnswer();
-    $("#answer-message").text("Correct");
   });
   $(".incorrectBtn").click(function () {
     console.log("Incorrect");
+    $('#answer-message').empty()
+    $("<span>Incorrect</span>").appendTo('#answer-message');
     questionController.incorrectAnswer();
-    $("#answer-message").text("Incorrect");
   });
 };
+
