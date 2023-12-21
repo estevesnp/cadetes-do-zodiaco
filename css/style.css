@@ -28,6 +28,12 @@ center {
   align-items: center;
   width: 99%;
 }
+#end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 99%;
+}
 #start-journey {
   margin: 3%;
 }
@@ -46,8 +52,8 @@ center {
   margin: 10px;
 }
 
-#level-img{
-    margin-top: -30px;
+#level-img {
+  margin-top: -30px;
 }
 #video {
   width: 100%;
@@ -57,6 +63,7 @@ center {
   align-items: center;
   flex-direction: column;
   max-width: 60%;
+  min-width: 350px;
   gap: 10px;
 }
 #map-actual-img {
@@ -93,5 +100,4 @@ button {
   margin-bottom: -10px;
   font-size: 0.7em;
   background-color: rgba(0, 0, 0, 0.5);
-
 }
