@@ -10,6 +10,9 @@ body {
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
+center {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 .page {
   display: flex;
@@ -39,6 +42,12 @@ body {
 }
 #logo-img {
   max-width: 30%;
+  margin-top: 10px;
+  margin: 10px;
+}
+
+#level-img{
+    margin-top: -30px;
 }
 #video {
   width: 100%;
@@ -48,9 +57,10 @@ body {
   align-items: center;
   flex-direction: column;
   max-width: 60%;
+  gap: 10px;
 }
 #map-actual-img {
-  width: 110%;
+  width: 105%;
 }
 #question {
   background-color: rgba(0, 0, 0, 0.5);
@@ -67,7 +77,7 @@ body {
   width: 90%;
 }
 button {
-  width: 250px;
+  width: 400px;
   height: 60px;
   background-color: #dd8d00 !important;
   border-color: #dd8d00 !important;
@@ -78,4 +88,10 @@ button {
   align-items: center;
   width: 50%;
   flex-direction: column;
+}
+#progress-message {
+  margin-bottom: -10px;
+  font-size: 0.7em;
+  background-color: rgba(0, 0, 0, 0.5);
+
 }

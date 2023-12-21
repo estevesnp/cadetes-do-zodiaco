@@ -148,7 +148,7 @@ easyQuestions.push(
     "A dwarf planet",
     "A planet",
   ]),
-  new Question("Ateroids are examples of…", "SSSBs", [
+  new Question("Asteroids are examples of…", "SSSBs", [
     "Satellites",
     "Dwarf planets",
     "Planets",

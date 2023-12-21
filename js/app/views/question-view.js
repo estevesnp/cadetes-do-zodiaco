@@ -17,12 +17,13 @@ externals.renderLives = function () {};
 externals.renderQuestionsToAnswer = function () {};
 
 externals.updateLevel = function (level = 1) {
+  $("#level-img").empty();
   $("#level").text("Level: " + level);
   let img =
     '<br><img src = "../AssetsMapa/' +
     level +
     '.png" id="lvl-img" alt="level logo">';
-  $(img).appendTo("#level");
+  $(img).appendTo("#level-img");
 };
 
 internals.renderQuestion = function (question, correctAnswer, options) {

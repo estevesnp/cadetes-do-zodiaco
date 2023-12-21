@@ -95,7 +95,10 @@ internals.nextLevel = function () {
 
   level = newLevel;
 
-  mapView.renderMap(newLevel, "Good job, warrior! You've advanced to the next house!");
+  mapView.renderMap(
+    newLevel,
+    "  Good job, warrior! You've advanced to the next house!  "
+  );
 };
 
 internals.previousLevel = function () {
@@ -105,7 +108,7 @@ internals.previousLevel = function () {
 
   level = newLevel;
 
-  mapView.renderMap(newLevel, "Damn warrior, you kinda suck");
+  mapView.renderMap(newLevel, " Damn warrior, you kinda suck ");
 };
 
 internals.createQuestion = async function () {
