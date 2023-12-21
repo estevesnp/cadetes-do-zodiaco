@@ -4,6 +4,8 @@ export const externals = {};
 const internals = {};
 
 externals.renderIntro = function () {
+
+    $("#question").hide();
   //add dynamic username?
   const introMsg = `<br><p><center>You have entered the world of Saint Seiya…<br>
     Answer the questions to clear the levels.<br>
@@ -21,17 +23,25 @@ externals.renderIntro = function () {
   });
 };
 
-externals.renderMap = function (level = 1) {
+externals.renderMap = function (level = 1, message) {
   $("#question").empty();
   $("#options").empty();
   $("#answer-message").empty();
   $("#level").empty();
+  $("#question").hide();
 
   let element =
     '<img id="map-actual-img" src="../AssetsMapa/map' +
     level +
     '.png">' +
-    '<br><button id="start-game" type="button" class="btn btn-warning">Play</button>';
+    '<br>';
+    
+    if(message) {
+        
+        element += `<p>${message}</p>`
+    }
+    
+    element += '<button id="start-game" type="button" class="btn btn-warning">Play</button>';
 
   $(element).appendTo("#map-img");
 
@@ -43,8 +53,10 @@ externals.renderMap = function (level = 1) {
 
 externals.deleteMap = function () {
   $("#map-img").empty();
+  $("#question").show();
 };
 
 internals.deleteIntro = function () {
   $("#intro").empty();
+  $("#question").show();
 };
