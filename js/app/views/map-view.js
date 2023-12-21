@@ -48,7 +48,6 @@ externals.renderMap = function (level = 1, message) {
 };
 
 externals.renderEnd = function () {
-
   $("#question").empty();
   $("#options").empty();
   $("#answer-message").empty();
@@ -56,11 +55,11 @@ externals.renderEnd = function () {
   $("#level-img").empty();
   $("#question").hide();
 
-  let element = '<h1>THE END<p><h1>You reached athena\'s temple and found the truth:<p><iframe src="https://drive.google.com/file/d/1p8x3_Dcb202rG1WZ_zLB3JIcgm3Su62O/preview" width="640" height="480" allow="autoplay"></iframe>`</h1>';
+  let element =
+    '<h1>THE END</h1><p>You reached Athena\'s Temple and found the truth:</p><iframe src="https://drive.google.com/file/d/1p8x3_Dcb202rG1WZ_zLB3JIcgm3Su62O/preview" width="640" height="480" allow="autoplay"></iframe>`</h1>';
 
-  $(element).appendTo('#end');
-
-}
+  $(element).appendTo("#end");
+};
 
 externals.deleteMap = function () {
   $("#map-img").empty();
