@@ -673,10 +673,6 @@ hardQuestions.push(
   ])
 );
 
-easyQuestions.forEach((el) => {
-  console.log(el);
-});
-
 export const questions = {
   easy: easyQuestions,
   medium: mediumQuestions,

@@ -16,7 +16,7 @@ externals.renderIntro = function () {
   $(introMsg).appendTo("#intro");
   $(element).appendTo("#intro");
 
-  $("#intro").click(function () {
+  $("#start-journey").click(function () {
     internals.deleteIntro();
     externals.renderMap(1);
   });
@@ -31,7 +31,7 @@ externals.renderMap = function (level = 1, message) {
   $("#question").hide();
 
   let element =
-    '<img id="map-actual-img" src="../AssetsMapa/map' + level + '.png">';
+    '<img id="map-actual-img" src="AssetsMapa/map' + level + '.png">';
   if (message) {
     element += `<p id="progress-message">${message}</p>`;
   }
@@ -41,7 +41,7 @@ externals.renderMap = function (level = 1, message) {
 
   $(element).appendTo("#map-img");
 
-  $("#map-img").click(function () {
+  $("#start-game").click(function () {
     externals.deleteMap();
     questionController.beginLevel(level);
   });

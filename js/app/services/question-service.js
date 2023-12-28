@@ -8,8 +8,6 @@ externals.createQuestion = function(difficulty = 'easy') {
     const questArray = questionsArrays[difficulty];
     const quest = questArray[Math.floor(Math.random() * questArray.length)];
 
-    console.log('[QUEST]', quest);
-
     const options = [...quest.incorrectAnswers];
     
     options.splice(Math.floor(Math.random() * (options.length + 1)), 0, quest.correctAnswer);

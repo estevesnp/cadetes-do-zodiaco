@@ -10,8 +10,6 @@ let lives = 3;
 let questionDifficulties = [];
 
 externals.start = function () {
-    console.log("[QUESTION CONTROLLER HERE]");
-
     mapView.renderIntro();
 };
 
@@ -118,13 +116,6 @@ internals.previousLevel = function () {
 };
 
 internals.createQuestion = async function () {
-    console.log("Lives: " + lives);
-
-    console.log("QUESTIONS REMAINING: ", questionDifficulties.length);
-
-    console.log("[DIFFICULTY]", questionDifficulties[0]);
-
-    //const question = await questionService.createQuestion(difficulty);
 
     const question = questionService.createQuestion(
         questionDifficulties[0]

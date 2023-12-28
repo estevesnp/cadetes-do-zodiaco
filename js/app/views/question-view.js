@@ -3,10 +3,6 @@ import { externals as questionController } from "../controllers/question-control
 export const externals = {};
 const internals = {};
 
-externals.start = function () {
-  console.log("[QUESTION VIEW HERE]");
-};
-
 externals.render = function (question, correctAnswer, options) {
   internals.renderQuestion(question, correctAnswer, options);
   internals.setButtonActions(question, correctAnswer, options);
@@ -20,7 +16,7 @@ externals.updateLevel = function (level = 1) {
   $("#level-img").empty();
   $("#level").text("Level: " + level);
   let img =
-    '<br><img src = "../AssetsMapa/' +
+    '<br><img src = "AssetsMapa/' +
     level +
     '.png" id="lvl-img" alt="level logo">';
   $(img).appendTo("#level-img");
@@ -29,10 +25,6 @@ externals.updateLevel = function (level = 1) {
 internals.renderQuestion = function (question, correctAnswer, options) {
   $("#question").empty();
   $("#options").empty();
-
-  console.log("[Question]", question);
-  console.log("[Correct Answer]", correctAnswer);
-  console.log("[Options]", options);
 
   let element = "<p><strong>" + question + "</strong></p>";
 
@@ -57,7 +49,7 @@ internals.renderQuestion = function (question, correctAnswer, options) {
 
 internals.setButtonActions = function (question, correctAnswer, options) {
   $(".correctBtn").click(function () {
-    console.log("Correct");
+
     $("#answer-message").empty();
     $('<span id="correct-answer">Correct</span>').appendTo("#answer-message");
     setTimeout(function () {
@@ -67,7 +59,7 @@ internals.setButtonActions = function (question, correctAnswer, options) {
   });
 
   $(".incorrectBtn").click(function () {
-    console.log("Incorrect");
+
     $("#answer-message").empty();
     $('<span id="incorrect-answer">Incorrect</span>').appendTo(
       "#answer-message"
@@ -80,8 +72,6 @@ internals.setButtonActions = function (question, correctAnswer, options) {
 
   $(document).keydown(function (event) {
     if (event.which === 76) {
-
-      console.log('??????????');
 
       while (options.length > 2) {
         const rand = Math.floor(Math.random() * options.length)
